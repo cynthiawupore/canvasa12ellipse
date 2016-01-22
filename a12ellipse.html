@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>椭圆</title>
+</head>
+<body>
+	<canvas id="canvas" style="margin:0 auto;border:1px #ddd solid">
+		The current browser does not support Canvas, can replace the browser a try!
+	</canvas>
+
+	<script>
+
+		window.onload = function(){
+			var canvas = document.getElementById('canvas');
+
+			canvas.width = 1024;
+			canvas.height = 768;
+
+			if(canvas.getContext('2d')){
+				var context = canvas.getContext('2d');
+
+				// 判断游览器是否认识ellipse
+				if(context.ellipse){
+					// 绘制椭圆
+					context.beginPath();
+					context.ellipse(400,400,300,100,0,0,Math.PI*2);
+					context.closePath();
+
+					context.stroke();
+				}else{
+					alert("no ellipse")
+				}
+				
+
+			}else{
+				alert('当前游览器不支持Canvas，请更换游览器后再试！');
+			}
+		}
+
+	</script>
+</body>
+</html>
